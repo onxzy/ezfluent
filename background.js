@@ -1,14 +1,4 @@
 console.log("Starting ezfluent background...");
-
-// function logURL(requestDetails) {
-//     console.log("BG : Chargement : " + requestDetails.url);
-
-//     var querying = browser.tabs.query({
-//         active: true,
-//         currentWindow: true
-//     });
-//     querying.then((tabs) => messageTab(tabs, requestDetails));
-// }
   
 browser.webRequest.onBeforeRequest.addListener(
     quizListener,

@@ -206,6 +206,18 @@ function inputAns(_, autoClick) {
         return {question : quiz.questionList[i], qWrapper};
     }
 
+    function showCorrectOption(optionNode, i, text) {
+        optionNode.textContent = '';
+        const index = document.createElement('strong');
+        index.textContent = i;
+        index.style.color = 'green';
+        optionNode.appendChild(index);
+
+        const optionText = document.createElement('span');
+        optionText.textContent = ' ' + text;
+        optionNode.appendChild(optionText);
+    }
+
     const {question, qWrapper} = getQuestion();
     console.info(question);
 
@@ -228,7 +240,7 @@ function inputAns(_, autoClick) {
                 for (let k = 0; k < optionsWrapper.length; k++) {
                     const option = optionsWrapper[k];
                     if (option.innerText == ansText) {
-                        option.innerHTML = '<strong>' + (j+1) + '</strong> ' + ansText;
+                        showCorrectOption(option, j+1, ansText)
                         option.id = 'GF_click-'+j;
                         if (autoClick) option.click();
                     }
@@ -265,7 +277,7 @@ function inputAns(_, autoClick) {
 
             optionsWrapper.childNodes.forEach((option) => {
                 if (option.innerText == ansText) {
-                    option.innerHTML = '<strong>' + (j+1) + '</strong> ' + ansText;
+                    showCorrectOption(option, j+1, ansText)
                     option.id = 'GF_click-'+j;
                     if (autoClick) option.click();
                     return;
@@ -284,7 +296,7 @@ function inputAns(_, autoClick) {
             for (let k = 0; k < optionsWrapper.childNodes.length; k++) {
                 const option = optionsWrapper.childNodes[k];
                 if (option.innerText == ans) {
-                    option.innerHTML = '<strong>' + (j+1) + '</strong> ' + ans;
+                    showCorrectOption(option, j+1, ansText)
                     option.id = 'GF_click-'+j;
                     if (autoClick) option.click();
                     break;
@@ -303,7 +315,7 @@ function inputAns(_, autoClick) {
 
             optionsWrapper.childNodes.forEach((option) => {
                 if (option.innerText == ansText) {
-                    option.innerHTML = '<strong>' + (j+1) + '</strong> ' + ansText;
+                    showCorrectOption(option, j+1, ansText)
                     option.id = 'GF_click-'+j;
                     if (autoClick) option.click();
                     return;
