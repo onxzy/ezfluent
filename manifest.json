@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "Ez fluent",
+  "version": "1.0",
+
+  "description": "ez",
+
+  "content_scripts": [
+    {
+      "matches": ["*://portal.gofluent.com/*"],
+      "js": ["ezfluent.js", "react-trigger-change.js"]
+    }
+  ],
+
+  "background": {
+      "scripts": ["background.js"]
+  },
+
+  "permissions": [
+      "activeTab",
+      "webRequest",
+      "webRequestBlocking",
+      "contextMenus",
+      "*://*.gofluent.com/*"
+  ]
+}
+  
